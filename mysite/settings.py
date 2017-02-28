@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'taggit',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -128,7 +129,6 @@ def read_google_password():
     try:
         with open('mygoog.pswd', 'r') as file:
             pswd = str(file.readline())
-
     except:
         raise IOError('File mygoog.pswd not found')
 
