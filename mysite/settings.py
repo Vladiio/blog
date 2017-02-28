@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
@@ -120,3 +120,27 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Sending e-mails
+
+def read_google_password():
+    try:
+        with open('mygoog.pswd', 'r') as file:
+            pswd = str(file.readline())
+
+    except:
+        raise IOError('File mygoog.pswd not found')
+
+    return pswd
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'vladpochta5@gmail.com'
+
+EMAIL_HOST_PASSWORD = read_google_password()
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
